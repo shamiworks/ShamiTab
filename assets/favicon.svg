@@ -14,13 +14,13 @@
    viewBox="0 0 1000 1000"
    version="1.1"
    id="SVGRoot"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="ShamiWorks black.svg"
-   inkscape:export-filename="C:\Users\Greg\Downloads\ShamiTab logo.png"
+   inkscape:export-filename="C:\Users\Greg\Downloads\shamiworks-logo-2.png"
    inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96">
+   inkscape:export-ydpi="96"
+   sodipodi:docname="ShamiWorks logo.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <defs
-     id="defs3729" />
+     id="defs10" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.18101934"
-     inkscape:cx="-1157.2815"
-     inkscape:cy="395.29591"
+     inkscape:zoom="0.36203867"
+     inkscape:cx="-20.077077"
+     inkscape:cy="803.83495"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,13 +40,14 @@
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true">
+     inkscape:guide-bbox="true"
+     inkscape:snap-grids="true">
     <inkscape:grid
        type="xygrid"
-       id="grid3742" />
+       id="grid23" />
   </sodipodi:namedview>
   <metadata
-     id="metadata3732">
+     id="metadata13">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -62,28 +63,25 @@
      inkscape:groupmode="layer"
      id="layer1">
     <g
-       id="g3795"
-       transform="matrix(1.0387319,0,0,1.0387319,-38.267935,-31.739485)">
+       id="g51"
+       transform="matrix(2.7941176,0,0,2.7941176,24.999991,24.999991)">
       <path
+         sodipodi:nodetypes="czczczczc"
          inkscape:connector-curvature="0"
-         id="path3782"
-         d="M 450.28155,971.97341 C 372.60721,963.09083 313.32838,947.43576 217.26707,910.43612 l -58.99993,-22.72475 -8.65309,-47.31484 c -42.98027,-235.01456 -43.66391,-391.7793 -2.81925,-646.47665 6.07103,-37.85748 14.06962,-70.72374 17.77464,-73.03614 3.70501,-2.3124 34.08154,-12.96647 67.50338,-23.675721 C 412.83684,39.2864 563.52447,31.557746 721.86801,72.086796 c 62.16535,15.911619 149.38354,47.106024 153.53763,54.914154 2.54354,4.78086 9.81105,42.25242 16.1501,83.27013 35.65072,230.6829 37.19603,390.48785 5.55565,574.52426 -19.03797,110.73442 -12.64522,100.67455 -80.95876,127.3991 -73.95547,28.93177 -165.14585,52.24066 -234.73729,60.00061 -59.36348,6.6194 -71.49138,6.59891 -131.13379,-0.22164 z"
-         style="fill:#000000;stroke-width:5.52427149" />
+         id="rect25"
+         d="m 20,20 c 0,0 50,-20 150,-20 100,0 150,20 150,20 0,0 20,50 20,149.97817 C 340,269.95634 320,320 320,320 c 0,0 -50,20 -150.12864,20 C 69.74272,340 20,320 20,320 20,320 0,269.95634 0,169.97817 0,70 20,20 20,20 Z"
+         style="fill:#000000" />
       <text
-         id="text3790"
-         y="825.70038"
-         x="70.619827"
-         style="font-style:normal;font-weight:normal;font-size:901.31604004px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:9.38870907"
+         id="text46"
+         y="286.0509"
+         x="8.4085922"
+         style="font-style:normal;font-weight:normal;font-size:323.10192871px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.36564517"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:HakusyuGyosyoPro_kk;-inkscape-font-specification:HakusyuGyosyoPro_kk;fill:#ffffff;stroke-width:9.38870907"
-           y="825.70038"
-           x="70.619827"
-           id="tspan3788"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'UD Digi Kyokasho NK-B';-inkscape-font-specification:'UD Digi Kyokasho NK-B';stroke-width:3.36564517"
+           y="286.0509"
+           x="8.4085922"
+           id="tspan44"
            sodipodi:role="line">三</tspan></text>
     </g>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2" />
 </svg>

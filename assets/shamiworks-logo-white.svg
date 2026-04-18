@@ -14,13 +14,13 @@
    viewBox="0 0 1000 1000"
    version="1.1"
    id="SVGRoot"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="ShamiTab black.svg"
-   inkscape:export-filename="C:\Users\Greg\Downloads\ShamiTab logo.png"
+   inkscape:export-filename="C:\Users\Greg\Downloads\shamiworks-logo-2.png"
    inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96">
+   inkscape:export-ydpi="96"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="ShamiWorks logo.svg">
   <defs
-     id="defs3729" />
+     id="defs10" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -28,9 +28,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.18101934"
-     inkscape:cx="-1157.2815"
-     inkscape:cy="395.29591"
+     inkscape:zoom="0.36203867"
+     inkscape:cx="-20.077077"
+     inkscape:cy="803.83495"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,13 +40,14 @@
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      showguides="true"
-     inkscape:guide-bbox="true">
+     inkscape:guide-bbox="true"
+     inkscape:snap-grids="true">
     <inkscape:grid
        type="xygrid"
-       id="grid3742" />
+       id="grid23" />
   </sodipodi:namedview>
   <metadata
-     id="metadata3732">
+     id="metadata13">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -62,24 +63,21 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#ffffff;stroke-width:5.7382369"
-       d="M 429.45387,977.8803 C 348.77106,968.65368 287.19625,952.39226 187.4143,913.95956 L 126.12919,890.35463 117.14095,841.2072 C 72.495974,597.09008 71.785855,434.25354 114.21251,169.69128 120.51868,130.36751 128.82707,96.228276 132.67559,93.826312 136.5241,91.424348 168.07717,80.357626 202.79351,69.233585 390.55886,9.0685519 547.08291,1.0405525 711.55939,43.13937 c 64.57314,16.527906 155.16945,48.930529 159.48444,57.04108 2.64205,4.96603 10.19105,43.88894 16.77562,86.49534 37.03154,239.61769 38.63671,405.61219 5.77083,596.77668 -19.77534,115.02337 -13.13499,104.57387 -84.09444,132.33351 -76.81991,30.05235 -171.54227,54.26404 -243.82911,62.32455 -61.66274,6.87578 -74.26038,6.85449 -136.21286,-0.23023 z"
-       id="path3782"
-       inkscape:connector-curvature="0" />
+       style="fill:#ffffff;stroke-width:2.79411769"
+       d="m 80.882343,80.882343 c 0,0 139.705877,-55.882352 419.117637,-55.882352 279.41176,0 419.11764,55.882352 419.11764,55.882352 0,0 55.88235,139.705877 55.88235,419.056647 0,279.35076 -55.88235,419.17863 -55.88235,419.17863 0,0 -139.70588,55.88235 -419.47707,55.88235 -279.7712,0 -418.758207,-55.88235 -418.758207,-55.88235 0,0 -55.882352,-139.82787 -55.882352,-419.17863 0,-279.35077 55.882352,-419.056647 55.882352,-419.056647 z"
+       id="rect25"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="czczczczc" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:936.22570801px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.75235176;"
-       x="35.087132"
-       y="825.94183"
-       id="text3790"><tspan
+       style="font-style:normal;font-weight:normal;font-size:902.78479004px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:9.40400887;"
+       x="48.494587"
+       y="824.25983"
+       id="text46"><tspan
          sodipodi:role="line"
-         id="tspan3788"
-         x="35.087132"
-         y="825.94183"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:HakusyuGyosyoPro_kk;-inkscape-font-specification:HakusyuGyosyoPro_kk;fill:#000000;stroke-width:9.75235176;">三</tspan></text>
+         id="tspan44"
+         x="48.494587"
+         y="824.25983"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'UD Digi Kyokasho NK-B';-inkscape-font-specification:'UD Digi Kyokasho NK-B';stroke-width:9.40400887;fill:#000000;">三</tspan></text>
   </g>
-  <g
-     inkscape:groupmode="layer"
-     id="layer2"
-     inkscape:label="Layer 2" />
 </svg>

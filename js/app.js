@@ -40,6 +40,18 @@ menus.forEach(menu => {
   menu.addEventListener("click", e => e.stopPropagation());
 });
 
+const infoBtn = document.getElementById("info-btn");
+const infoPanel = document.getElementById("info-panel");
+const infoClose = document.getElementById("info-close");
+
+infoBtn.addEventListener("click", () => {
+  infoPanel.classList.toggle("open");
+});
+
+infoClose.addEventListener("click", () => {
+  infoPanel.classList.remove("open");
+});
+
 /*
 ======================================================
   Page template creation handling

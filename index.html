@@ -24,6 +24,7 @@
       <button type="button" class="menu-btn" data-menu="file">File</button>
       <button type="button" class="menu-btn" data-menu="edit">Edit</button>
       <button type="button" class="menu-btn" data-menu="page">Page</button>
+      <button type="button" class="menu-btn info-btn" id="info-btn">Info</button>
     </div>
 
     <div class="menu-dropdown file-menu" data-menu="file">
@@ -233,6 +234,50 @@
    
   </div> <!-- End Workspace -->
       
+  
+  <div class="info-panel" id="info-panel">
+    <button class="info-close" id="info-close">✕</button>
+
+    <h2>Getting started</h2>
+    <p>Hover over the notation area to highlight time divisions and string slots. Click a string slot to select it — selected slots are shown with an outline. You can then enter a tsubo using the keyboard or palette. Click a time division outside a string slot to select the division only — this is needed for some techniques.</p>
+
+    <h2>Changing the number of measures</h2>
+    <p>Click anywhere on a staff unit to select it — the unit is outlined when selected. Then click Free, 2, 4, or 8 in the palette.</p>
+
+    <h2>Changing barline types</h2>
+    <p>Alt+click a barline to select it, then choose normal, repeat, or stop from the palette.</p>
+
+    <h2>Suri and oshibachi</h2>
+    <p>Enter the starting tsubo and the target tsubo. Select the starting tsubo slot. Press I for suri or O for oshibachi. The arc will be drawn between the two tsubo. Both must be in the same staff unit.</p>
+
+    <h2>Triplets</h2>
+    <p>Select a time division and press T. Three consecutive divisions are grouped as a triplet and a bracket is drawn below the staff. The fourth division is disabled. To remove a triplet, select any active tsubo in the group and press T again, or press Backspace.</p>
+
+    <h2>Keyboard shortcuts</h2>
+    <table class="shortcut-table">
+      <tr><td>0–9</td><td>Tsubo</td></tr>
+      <tr><td>#</td><td>Sharp</td></tr>
+      <tr><td>B</td><td>Flat</td></tr>
+      <tr><td>R</td><td>Rest</td></tr>
+      <tr><td>D</td><td>Duration underline (cycles: none → single → double)</td></tr>
+      <tr><td>.</td><td>Duration dot</td></tr>
+      <tr><td>S</td><td>Sukui</td></tr>
+      <tr><td>H</td><td>Hajiki</td></tr>
+      <tr><td>K</td><td>Keshi</td></tr>
+      <tr><td>U</td><td>Uchi</td></tr>
+      <tr><td>M</td><td>Maebachi</td></tr>
+      <tr><td>A</td><td>Ha</td></tr>
+      <tr><td>I</td><td>Suri (with starting tsubo selected)</td></tr>
+      <tr><td>O</td><td>Oshibachi (with starting tsubo selected)</td></tr>
+      <tr><td>T</td><td>Triplet (with starting tsubo selected)</td></tr>
+      <tr><td>F</td><td>Finger (cycles: none → Ⅰ → Ⅱ → Ⅲ)</td></tr>
+      <tr><td>Backspace</td><td>Clear</td></tr>
+      <tr><td>Escape</td><td>Deselect</td></tr>
+      <tr><td>Arrow keys</td><td>Navigate</td></tr>
+    </table>
+  </div>
+
   <script src="js/app.js"></script>
+
 </body>
 </html>
