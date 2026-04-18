@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShamiTab</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  
+</head>
+<body>
+  <!-- Main Menu -->
+<div class="ui">
+    <div class="menubar">
+      <button type="button" class="icon" disabled>三</button>
+      <button type="button" class="menu-btn" data-menu="file">File</button>
+      <button type="button" class="menu-btn" data-menu="edit">Edit</button>
+      <button type="button" class="menu-btn" data-menu="page">Page</button>
+    </div>
+
+    <div class="menu-dropdown file-menu" data-menu="file">
+      <div class="has-submenu">
+        <button type="button" class="menu-dropdown-btn">New ▶</button>
+        <div class="submenu">
+          <button type="button" class="menu-dropdown-btn" id="new-staff-page">Staff Page</button>
+          <button type="button" class="menu-dropdown-btn" id="new-lyric-page">Staff and Lyric Page</button>
+        </div>
+      </div>
+      <button type="button" class="menu-dropdown-btn" id="open-file">Open</button>
+      <button type="button" class="menu-dropdown-btn" id="save-file">Save</button>
+      <button type="button" class="menu-dropdown-btn" id="print-file">Print</button>
+    </div>
+
+    <div class="menu-dropdown edit-menu" data-menu="edit">
+      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Undo</button>
+      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Redo</button>
+      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Copy</button>
+      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Paste</button>
+    </div>
+
+    <div class="menu-dropdown page-menu" data-menu="page">
+      <button type="button" class="menu-dropdown-btn" id="add-staff-page">Add Staff Page</button>
+      <button type="button" class="menu-dropdown-btn" id="add-lyric-page">Add Staff and Lyric Page</button>
+      <button type="button" class="menu-dropdown-btn" id="clear-page">Clear Page</button>
+      <button type="button" class="menu-dropdown-btn" id="delete-page">Delete Page</button>
+    </div>
+
+    <!-- Tool Palette Menu -->
+    <div class="palette">
+      
+      <div class="palette-header">Tsubo</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="rest" data-value="●" title="r">●</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="0">0</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="1">1</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="2">2</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="3">3</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="#">#</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="4">4</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="5">5</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="6">6</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="7">7</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="8">8</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="9">9</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="♭" title="b">♭</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="10">10</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="11">11</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="12">12</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="13">13</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="1#">1#</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="14">14</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="15">15</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="16">16</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="17">17</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="18">18</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="tsubo" data-value="19">19</button>
+      </div>
+      <div class="palette-header">Duration</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="duration-empty" data-value="duration-empty">-</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn p-dotted" data-action="durationDot" data-value="dotted" title=".">x</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn p-single" data-action="duration-underline" data-value="single" title="d">x</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn p-double" data-action="duration-underline" data-value="double" title="d">x</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="triplet" title="t">╰3╯</button>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="palette-header">Technique</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="sukui" data-value="ス" title="s">ス</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="hajiki" data-value="ハ" title="h">ハ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="oshibachi" title="o">オシ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="uchi" data-value="ウ" title="u">ウ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="keshi" data-value="ケ" title="k">ケ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="suri" title="i">スリ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="maebachi" data-value="mae" title="m">前</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="ha" title="a">Ha!</button>
+      </div>
+      <div class="palette-header">Finger</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="finger" data-value="" title="f">-</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="finger" data-value="first" title="f">Ⅰ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="finger" data-value="second" title="f">Ⅱ</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="finger" data-value="third" title="f">Ⅲ</button>
+      </div>
+      <div class="palette-header">Measure</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="measure" data-value="0" title="No measure lines">Free</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="measure" data-value="2" title="2 measures">2</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="measure" data-value="4" title="4 measures">4</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="measure" data-value="8" title="8 measures">8</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="barline-type" data-value="stop" title="Stop barline">𝄁</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="barline-type" data-value="open-repeat" title="Open repeat">𝄆</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="barline-type" data-value="close-repeat" title="Close repeat">𝄇</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="barline-type" data-value="normal" title="Normal barline">𝄀</button>
+      </div>
+      <div class="palette-header">Editing</div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="editing" data-value="copy" style="text-decoration: line-through">Copy</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="editing" data-value="paste" style="text-decoration: line-through">Paste</button>
+      </div>
+      <div class="palette-item">
+        <button type="button" class="palette-btn" data-action="clear" title="backspace">Clear</button>
+      </div>
+      <div></div>
+    
+    </div> <!-- End palette -->
+
+  </div> <!-- End UI -->
+
+  <!-- Workspace -->
+  <div class="workspace">
+    
+   
+  </div> <!-- End Workspace -->
+      
+  <script src="js/app.js"></script>
+</body>
+</html>

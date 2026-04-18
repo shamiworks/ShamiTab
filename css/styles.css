@@ -1,0 +1,613 @@
+/* ---- Overall Rules ---- */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-size: 11pt;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #e0e0e0;
+    font-family: "M Plus 2", sans-serif;
+    
+}
+
+
+/* ---- End Overall Rules ---- */
+
+
+/* ---- Main Menu Rules ---- */
+.menubar {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #333;
+    z-index: 1000;
+}
+
+.icon{
+    
+    justify-content: center;
+    width: 40px;
+    padding: 0;
+    font-size: 16pt;
+    font-weight: bold;
+    border: none;
+    background: #333;
+    color: gold
+}
+.menu-btn {
+    border: none;
+    width: 60px;
+    color: white;
+    font-family: "M Plus 2", sans-serif;
+    background: #333;
+
+}
+
+.menu-btn:hover {
+    background-color: #535353;
+}
+
+.menu-dropdown {
+    position: fixed;
+    margin: 0;
+    top: 40px;
+    padding-bottom: 5px;
+    width: 300px;
+    display: none;
+    background: #3b3b3b;
+    border: 1px solid  rgb(177, 177, 177);
+    z-index: 1000;
+
+}
+
+.menu-dropdown.open {
+    display: block;
+
+}
+
+.menu-dropdown-btn {
+    display: flex;
+    border: none;
+    margin-top: 5px;
+    padding: 4px 0 4px 20px;
+    width: 100%;
+    color: white;
+    font-family: "M Plus 2", sans-serif;
+    justify-content: left;
+    background: #333;
+
+}
+
+.menu-dropdown-btn:hover {
+    background-color: #535353;
+}
+
+.file-menu {
+    left: 40px;
+}
+
+/* New ▶ submenu */
+.has-submenu {
+    position: relative;
+    width: 100%;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 220px;
+    background: #3b3b3b;
+    border: 1px solid rgb(177, 177, 177);
+    padding-bottom: 5px;
+    z-index: 1001;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.edit-menu {
+    left: 100px;
+    
+}
+
+.page-menu {
+    left: 160px;
+
+}
+
+
+/* ---- End Main Menu Rules ---- */
+
+/* ---- Tool Palette Rules ---- */
+
+.palette {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(18, 1fr);
+    position: fixed;
+    top: 45px;
+    left: 5px;
+    height: 700px;
+    width: 220px;
+    z-index: 100;
+    overflow: hidden;
+    background: #333;
+    font-family: "IBM Plex Sans JP", sans-serif;
+    color: white;
+    gap: 2px;
+    
+
+}
+
+.palette-header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3b3b3b;
+}
+
+.palette-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px solid red; */
+}
+
+.palette-item button {
+    font-family: "IBM Plex Sans JP", sans-serif;
+    color: white;
+    border: none;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+}
+
+.palette-item button:hover {
+    background-color: #535353;
+}
+
+.p-dotted::after {
+    content: "●";
+    position: relative;
+    top: -1.7mm;
+    right: -0.3mm;
+    font-size: 1mm;
+    color: #e0e0e0;
+}
+
+.p-single {
+    position: relative;
+    text-decoration: 1px underline #e0e0e0;
+}
+
+.p-double {
+    position: relative;
+    text-decoration: 1px underline double #e0e0e0;
+}
+
+.palette-bar-line {
+    font-size: 16pt;
+}
+
+/* ---- End Tool Palette Rules ---- */
+
+/* ---- Workspace Rules ---- */
+
+.workspace {
+    margin-top: 45px;
+    margin-left: 230px;
+
+    /* border: 1px solid red; */
+}
+
+/* ---- Page level ---- */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: white;
+  position: relative;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  font-family: "IBM Plex Sans JP", sans-serif;
+  font-size: 11pt;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  /* outline: 0.2mm solid red; */
+  
+}
+
+.staff-page-content, .lyric-page-content{
+  width: 190mm;
+  height: 277mm;
+  position: absolute;
+  top: 10mm;
+  left: 10mm;
+
+  /* border: 1px solid red; */
+
+}
+
+/* ---- Header ---- */
+.header {
+  display: grid;
+  grid-template-columns: repeat(19, 1fr);
+  grid-template-rows: repeat(5, 5mm);
+  width: 190mm;
+  height: 27mm;
+
+  /* outline: 1px solid blue; */
+
+}
+
+.dedication-field {
+  justify-self: center;
+  align-self: center;
+  grid-row: 1 / span 1;
+  grid-column:4 / span 13;
+  font-size: 8pt;
+  font-family: "IBM Plex Sans JP", sans-serif;
+
+}
+
+.page-number {
+  justify-self: right;
+  align-self: center;
+  grid-row: 1 / span 1;
+  grid-column: 17 / span 3;
+  font-size: 8pt;
+
+}
+
+.title-field {
+  justify-self: center;
+  align-self: center;
+  grid-row: 2 / span 2;
+  grid-column: 4 / span 13;
+  font-size: 20pt;
+
+}
+
+.subtitle-field {
+  justify-self: center;
+  align-self: center;
+  grid-row: 4 / span 1;
+  grid-column: 4 / span 13;
+  font-size: 12pt;
+  
+}
+
+.tuning-field {
+  justify-self: left;
+  align-self: center;
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 3;
+  font-size: 10pt;
+  
+}
+.time-sig-field {
+  justify-self: left;
+  align-self: center;
+  grid-row: 5 / span 1;
+  grid-column: 1 / span 3; 
+  font-size: 10pt;
+  
+}
+
+.arranger-field {
+  justify-self: right;
+  align-self: center;
+  grid-row: 5 / span 1;
+  grid-column: 17 / span 3;
+  font-size: 10pt;
+
+}
+
+
+.running-header > *:not(.title-field):not(.page-number) {
+  visibility: hidden;
+}
+
+[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: lightgrey;
+  pointer-events: none;
+}
+
+/* ---- Staff unit ---- */
+.staff-unit {
+  display: grid;
+  grid-template-columns: 10mm 180mm;
+  width: 190mm;
+  height: 25mm;
+
+  /* outline: 1px solid red; */
+
+}
+
+.arc-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+
+.staff-line {
+  stroke: #d3d3d3;
+  stroke-width: 0.3mm;
+
+}
+
+.staff-metadata {
+  display: grid;
+  grid-template-columns: auto 5.4mm;
+  grid-template-rows: repeat(6,4mm);
+  width: 10mm;
+  height: 20mm;
+
+}
+
+.bar-number {
+  display: flex;
+  justify-self: left;
+  align-items: center;
+  grid-column: 1 / span 2;
+  height: 4mm;
+  
+}
+
+.string-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  pointer-events: none;
+
+}
+
+.staff-section {
+  position: relative;
+  height: 24mm;
+
+}
+
+.staff-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: visible;
+}
+
+.barline-hit {
+  cursor: pointer;
+}
+
+.notation-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(32, 1fr);
+  width: 180mm;
+
+}
+
+.time-division {
+  display: block;
+
+  /* outline: 1px solid red; */
+}
+
+.time-division:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.time-division.selected {
+  outline: 0.4mm solid rgba(0, 0, 0, 0.2);
+  outline-offset: -0.2mm;
+}
+
+.staff-unit.selected-unit .staff-section {
+  outline: 0.4mm solid rgba(0, 0, 0, 0.15);
+  outline-offset: -0.2mm;
+}
+
+.dedication-field:focus,
+.title-field:focus,
+.subtitle-field:focus,
+.time-sig-field:focus,
+.tuning-field:focus,
+.arranger-field:focus,
+.lyric-line:focus {
+  outline: 0.4mm solid rgba(0, 0, 0, 0.15);
+  outline-offset: -0.2mm;
+}
+
+.dotted::after {
+  content: "●";
+  position: absolute;
+  top: -0.5mm;
+  right: -0.5mm;
+  font-size: 1mm;
+  color: black;
+}
+.single {
+  position: relative;
+  text-decoration: 1px underline #000000;
+}
+
+.double {
+  position: relative;
+  text-decoration: 1px underline double #000000;
+}
+
+.triplet-disabled:hover {
+  background: rgb(255, 218, 218);
+}
+
+.above-zone {
+  display: flex;
+  height: 4mm;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 8pt;
+  pointer-events: none;
+
+  /* outline: 1px solid blue; */
+}
+
+.ha-mark {
+  font-size: 8pt;
+}
+
+.finger-mark {
+  font-size: 8pt;
+}
+
+.tsubo-zone {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  
+  /* outline: 1px solid orange; */
+}
+
+.string-slot {
+  position: relative;
+  display: flex;
+  height: 4mm;
+  align-items: center;
+  justify-content: center;
+  font-size: 10pt;
+  
+}
+
+.string-slot:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.string-slot.selected {
+  outline: 0.5mm solid #000;
+  outline-offset: -0.2mm;
+}
+
+.string-slot.has-rest {
+  font-size: 10pt;
+}
+
+.sukui-mark, .hajiki-mark, .keshi-mark, .uchi-mark {
+  position: absolute;
+  bottom: -4.2mm;   /* adjust later */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  font-size: 8pt;
+
+  /* background-color: white; */
+}
+
+
+.clearance-row {
+  display: block;
+  height: 4mm;
+
+  /* outline: 1px solid red; */
+}
+
+.below-zone {
+  display: flex;
+  height: 4mm;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 8pt;
+  pointer-events: none;
+
+  /* outline: 1px solid green; */
+
+}
+
+
+.has-tsubo {
+  background-color: transparent;
+  padding: 0 0.4mm;
+  font-size: 10pt;
+}
+
+/* ---- Lyric unit ---- */
+.lyric-unit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; /* evenly space 3 lines vertically */
+  width: 180mm;   /* matches staff-section width */
+  margin-left: 10mm; /* align with staff-section start */
+  height: 25mm;   /* same as staff-unit height */
+  font-family: "IBM Plex Sans JP", sans-serif;
+  font-size: 10pt;
+}
+
+.lyric-line {
+  width: 100%;
+  padding: 0; /* no extra padding needed */
+}
+
+
+/* ---- End Workspace Rules ---- */
+
+/* ---- Print rules ---- */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+
+@media print {
+  
+  .ui {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .body {
+    overflow: hidden;
+  }
+
+  .workspace {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    
+  }
+
+  .page {
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .staff-unit.selected-unit .staff-section { outline: none; }
+
+  [data-placeholder]:empty::before { display: none; }
+
+}
+
+
+/* ---- End Print rules ---- */
