@@ -923,9 +923,24 @@ function commitDurationDot(division) {
 }
 
 // --- Techniques ---
+function clearClearanceMarks(division) {
+  const anchorSlot = getBottomMostActiveSlot(division);
+  if (anchorSlot) {
+    for (const cls of [".sukui-mark", ".hajiki-mark", ".keshi-mark", ".uchi-mark"]) {
+      const el = anchorSlot.querySelector(cls);
+      if (el) el.remove();
+    }
+  }
+  delete division.dataset.sukui;
+  delete division.dataset.hajiki;
+  delete division.dataset.keshi;
+  delete division.dataset.uchi;
+}
+
 function commitSukui(division) {
   if (!division) return;
 
+  if (division.dataset.sukui !== "true") clearClearanceMarks(division);
   const isNowOn = toggleDatasetFlag(division, "sukui");
 
   const anchorSlot = getBottomMostActiveSlot(division);
@@ -947,6 +962,7 @@ function commitSukui(division) {
 function commitHajiki(division) {
   if (!division) return;
 
+  if (division.dataset.hajiki !== "true") clearClearanceMarks(division);
   const isNowOn = toggleDatasetFlag(division, "hajiki");
 
   const anchorSlot = getBottomMostActiveSlot(division);
@@ -968,6 +984,7 @@ function commitHajiki(division) {
 function commitKeshi(division) {
   if (!division) return;
 
+  if (division.dataset.keshi !== "true") clearClearanceMarks(division);
   const isNowOn = toggleDatasetFlag(division, "keshi");
 
   const anchorSlot = getBottomMostActiveSlot(division);
@@ -989,6 +1006,7 @@ function commitKeshi(division) {
 function commitUchi(division) {
   if (!division) return;
 
+  if (division.dataset.uchi !== "true") clearClearanceMarks(division);
   const isNowOn = toggleDatasetFlag(division, "uchi");
 
   const anchorSlot = getBottomMostActiveSlot(division);
