@@ -164,7 +164,7 @@ function generatePage(pageType, pageNumber) {
   const watermark = document.createElement("div");
   watermark.className = "watermark";
   watermark.textContent = "Created with ShamiTab by ShamiWorks";
-  page.appendChild(watermark);
+  pageContent.appendChild(watermark);
 
   document.querySelector(".workspace").appendChild(page);
 
