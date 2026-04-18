@@ -1,0 +1,50 @@
+SHAMITAB - VERSION IDEAS
+====================================
+Last updated: 2026-04-19
+
+Ideas are grouped by likely version. Nothing here is committed.
+Design philosophy: the user is responsible for musical correctness.
+The app provides tools; it does not validate.
+
+======================================================
+V1.1 — EXTENSIONS TO CURRENT MODEL
+======================================================
+Features that can be added without restructuring the core architecture.
+
+-- Identity / Distribution --
+- ShamiWorks landing page (shamiworks.github.io)
+- Japanese language version (三味タブ)
+  - All UI text, instructions, about page
+  - Language toggle in menubar
+
+-- Logo / Branding --
+- Logo hover dropdown (logo | ShamiTab / 三味タブ)
+  if stacked title in menubar is dropped in future
+
+-- Measure / Structure Editing --
+- Great staff: vertical bracket connecting two staff-units
+  to indicate simultaneous instruments
+- Multi-staff selection: select multiple staff-units
+  for copy/paste/move
+- Measure editing mode: explicit palette toggle as
+  alternative to Alt-key approach
+
+-- Barlines --
+- First/second endings (volta brackets)
+
+-- Notation --
+- Additional technique marks as needed
+
+======================================================
+V2.0 — NEW ARCHITECTURE REQUIRED
+======================================================
+Features that would require significant restructuring.
+
+(Nothing identified yet)
+
+======================================================
+DROPPED FOR V1
+======================================================
+- Bar counter display
+- localStorage (file save/load only)
+- Logo hover dropdown (replaced by stacked title in menubar)

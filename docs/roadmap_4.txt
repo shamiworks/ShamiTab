@@ -1,0 +1,40 @@
+SHAMITAB - ROADMAP
+==============================
+Last updated: 2026-04-19
+
+Status values: NOT STARTED | IN PROGRESS | DONE
+
+======================================================
+BUILD ORDER
+======================================================
+
+1. Add data-time-index to all time-divisions       DONE
+2. Refactor arc targeting to use data-time-index   DONE
+3. Triplet UI and data model                       DONE
+4. Rename data attributes                          DONE
+5. Staff unit selection tracking                   DONE
+6. Barline palette wiring                          DONE
+7. Page generation wired to menu                   DONE
+8. Repeat and stop barlines                        DONE
+9. Save                                            DONE
+10. Load                                           DONE
+11. Pre-release polish                             DONE
+    - Favicon, Open Graph metadata, preview image
+    - Logo and app title in menubar
+    - Warm grey + amber colour scheme
+    - Watermark on each page
+    - Instructions slide-in panel
+    - About page (opens in new tab)
+    - Menubar: About | Instructions | Buy me a boba
+    - README.md and LICENSE (CC BY 4.0)
+    - Bug fix: mutually exclusive technique marks
+      (sukui, hajiki, keshi, uchi)
+12. Ko-fi account and link wiring                  NOT STARTED
+
+======================================================
+NOTES
+======================================================
+- localStorage dropped for v1. File save/load only.
+- Bar counter display dropped for v1.
+- App renamed from "Tsubo Notation App" to ShamiTab.
+- Published under ShamiWorks identity.

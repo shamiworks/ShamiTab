@@ -1,0 +1,330 @@
+SHAMITAB - SPECIFICATION
+====================================
+Last updated: 2026-04-19
+
+======================================================
+FONTS
+======================================================
+UI elements:         M Plus 2, sans-serif
+Notation / content:  IBM Plex Sans JP, sans-serif
+
+======================================================
+COLOURS
+======================================================
+Menubar background:       #2e2a27
+Menu dropdown background: #353029
+Hover state:              #5c5248
+Body/workspace background:#ece8e3
+Amber accent:             #c8a030
+Amber hover (transparent):rgba(200,160,48,0.08-0.15)
+Triplet disabled:         rgba(180,100,40,0.06-0.15)
+Staff lines / barlines:   #d3d3d3
+Watermark text:           #d3d3d3
+Page background:          white
+
+======================================================
+DOM HIERARCHY
+======================================================
+.page
+  .staff-page-content   (staff-only page)
+  .lyric-page-content   (staff + lyric alternating page)
+    .header
+    .staff-unit
+    .lyric-unit         (lyric page only, follows every staff-unit)
+    .staff-unit
+    .lyric-unit
+    ...
+  .watermark
+
+======================================================
+HEADER (.header)
+======================================================
+Grid: 19 columns x 5 rows, height 27mm, width 190mm
+
+Fields (all contentEditable except page-number):
+  .dedication-field     row 1, col 4-16,  font 8pt
+  .page-number          row 1, col 17-19, font 8pt
+  .title-field          row 2-3, col 4-16, font 20pt
+  .subtitle-field       row 4, col 4-16,  font 12pt
+  .tuning-field         row 4, col 1-3,   font 10pt
+  .time-sig-field       row 5, col 1-3,   font 10pt
+  .arranger-field       row 5, col 17-19, font 10pt
+
+First page: all fields shown
+Subsequent pages: title and page-number only (class-based)
+
+Header types (JS functions):
+  fullHeader()          first page
+  runningHeader()       subsequent pages (copies title + page-number from first)
+
+======================================================
+MENUBAR
+======================================================
+Height: 40px, background: #2e2a27, position: fixed top
+Left side:
+  .icon           ShamiWorks_white.svg, 32x32px, links to index.html
+  .menu-title-block
+    .menu-title-en  "ShamiTab", M Plus 2, amber (#c8a030)
+    .menu-title-ja  "三味タブ", IBM Plex Sans JP, white
+  .menu-btn       File | Edit | Page (width 60px)
+Right side (.menu-right):
+  About           links to about.html (new tab)
+  Instructions    opens .info-panel slide-in
+  Buy me a boba   links to Ko-fi (placeholder)
+
+======================================================
+INFO PANEL (.info-panel)
+======================================================
+Slide-in from right, width 320px, top 40px
+Sections: Getting started, Changing the number of measures,
+          Changing barline types, Suri and oshibachi,
+          Triplets, Keyboard shortcuts
+Close button top right.
+
+======================================================
+WATERMARK
+======================================================
+"Created with ShamiTab by ShamiWorks"
+Font: M Plus 2, 8pt, #d3d3d3, centred
+Appended to .staff-page-content / .lyric-page-content
+Visible on screen and in print.
+
+======================================================
+STAFF UNIT (.staff-unit)
+======================================================
+Width: 190mm, Height: 25mm
+dataset:
+  data-block-type="staff-unit"
+  data-unit-index     position in page content
+  data-bars           number of bars (0, 2, 4, 8)
+  data-barlines       JSON array of barline position objects
+
+Children:
+  .staff-metadata     width 10mm
+  .staff-section      height 24mm (1mm gap below is intentional)
+
+-- Staff Metadata --
+Contains string number labels only (visual reference, not saved):
+  .string-number      "3", "2", "1" (top to bottom)
+
+-- Staff Section --
+Children:
+  .staff-svg          horizontal staff lines + barlines
+  .notation-layer     arc SVG + 32 time-divisions
+
+-- Staff SVG --
+Width 181mm, height 20mm
+Horizontal lines at y: 6mm, 10mm, 14mm (stroke: #d3d3d3, 0.3mm)
+Barlines drawn by drawBarlines() at positions from data-barlines
+
+-- Notation Layer --
+Children:
+  .arc-layer          SVG for oshibachi/suri arcs (z-index 1)
+  .time-division x32  (z-index 2, grid 32 columns)
+
+======================================================
+TIME DIVISION (.time-division)
+======================================================
+32 per staff-unit. IMMUTABLE. Fixed always.
+dataset:
+  data-time-index         position 0-31
+  data-duration-underline "single" | "double" | absent
+  data-duration-dot       "true" | absent
+  data-rest               "true" | absent
+  data-sukui              "true" | absent
+  data-hajiki             "true" | absent
+  data-keshi              "true" | absent
+  data-uchi               "true" | absent
+  data-maebachi           "true" | absent
+  data-ha                 "true" | absent
+  data-tech-arc           "suri" | "oshibachi" | absent
+  data-tech-arc-string    string number | absent
+  data-tech-arc-offset    division offset to target | absent
+  data-triplet            "1" | "2" | "3" | "disabled" | absent
+
+Zones (top to bottom):
+  .above-zone     height 4mm  — finger-mark OR ha-mark (mutually exclusive)
+  .tsubo-zone     3x string-slots
+  .clearance-row  height 4mm  — overflow space for technique marks
+  .below-zone     height 4mm  — maebachi text
+
+-- String Slot (.string-slot) --
+dataset:
+  data-string     "3" | "2" | "1" (top to bottom)
+classes:
+  has-tsubo       slot contains a fret value
+  has-rest        slot contains a rest (string 2 only)
+  single          duration underline single
+  double          duration underline double
+  dotted          duration dot
+
+String slot states:
+  ""              unplayed string (empty)
+  "0"-"19", "#", "♭"  fret value (0 = open string)
+  "●"             rest (has-rest class, string 2 only)
+
+-- Above Zone content --
+  .finger-mark span    "Ⅰ" | "Ⅱ" | "Ⅲ"
+  .ha-mark span        "ハ!"
+  (mutually exclusive)
+
+-- Clearance Row --
+  .sukui-mark span     "ス"
+  .hajiki-mark span    "ハ"
+  .keshi-mark span     "ケ"
+  .uchi-mark span      "ウ"
+  (mutually exclusive — selecting one clears the others)
+  (anchored to bottom-most active string slot)
+
+-- Below Zone --
+  "前" text (maebachi) | empty
+
+-- Arc Layer --
+  Oshibachi and suri drawn as SVG paths
+  Anchored from start slot to target slot across divisions
+  Triplet bracket drawn as right-angled SVG path below staff
+
+======================================================
+BARLINES
+======================================================
+BAR_TEMPLATES map (bars → division positions):
+  0: [0, 32]      (labelled "Free" in palette)
+  2: [0, 16, 32]
+  4: [0, 8, 16, 24, 32]
+  8: [0, 4, 8, 12, 16, 20, 24, 28, 32]
+
+Each barline: { "position": <division index>, "type": "normal" | "open-repeat" | "close-repeat" | "stop" }
+Barline colour: #d3d3d3
+Hit targets: transparent <rect> 6px wide, Alt+click to select
+Selected barline highlighted (amber tint)
+
+======================================================
+TRIPLETS
+======================================================
+Use 4 consecutive time-divisions:
+  Positions 1-3: active (triplet notes)
+  Position 4:    disabled, background rgba(180,100,40,0.06)
+Bracket drawn below staff on .arc-layer
+Keyboard shortcut: t
+Toggle off from any active division or Backspace
+
+======================================================
+LYRIC UNIT (.lyric-unit)
+======================================================
+Width: 180mm, margin-left: 10mm
+Height: 25mm
+3x .lyric-line divs (contentEditable, spellcheck false)
+  height: 8mm, font-size 11pt
+
+======================================================
+JS ARCHITECTURE
+======================================================
+Input Layer    palette clicks, keyboard
+Intent Layer   { action, value }
+Dispatch Layer dispatchCommit(intent)
+Commit Layer   commitTsubo, commitRest, commitDuration,
+               commitSukui, commitHajiki, commitKeshi,
+               commitUchi, commitMaebachi, commitHa,
+               commitTechArc, commitFinger,
+               commitClearSlot, commitClearDivision,
+               commitClearRest, commitClearDuration,
+               commitBarlineType
+
+Selection model:
+  selectedSlot        one string-slot at a time
+  selectedDivision    one time-division at a time
+  selectedStaffUnit   one staff-unit at a time
+  selectedBarline     { staffUnit, positionIndex }
+  slot selection implies division selection
+  division may be selected without slot
+
+======================================================
+DATA MODEL (SAVE FORMAT)
+======================================================
+Empty/false/absent fields omitted on save.
+
+Document:
+{
+  "header": {
+    "dedication": "",
+    "pageNumber": "",
+    "title": "",
+    "subtitle": "",
+    "timeSig": "",
+    "arranger": "",
+    "tuning": ""
+  },
+  "pages": [ ...page objects ]
+}
+
+Page:
+{
+  "type": "staff" | "lyric",
+  "blocks": [ ...block objects ]
+}
+
+Staff Unit:
+{
+  "type": "staff-unit",
+  "bars": 4,
+  "barlines": [
+    { "position": 0, "type": "normal" },
+    { "position": 8, "type": "open-repeat" },
+    { "position": 24, "type": "close-repeat" },
+    { "position": 32, "type": "stop" }
+  ],
+  "timeDivisions": [ ...32 time-division objects ]
+}
+
+Lyric Unit:
+{
+  "type": "lyric-unit",
+  "lines": ["", "", ""]
+}
+
+Time Division (empty fields omitted):
+{
+  "rest": true,
+  "strings": [
+    { "string": 3, "tsubo": "" },
+    { "string": 2, "tsubo": "4" },
+    { "string": 1, "tsubo": "0" }
+  ],
+  "durationUnderline": "single",
+  "durationDot": true,
+  "sukui": true,
+  "hajiki": true,
+  "keshi": true,
+  "uchi": true,
+  "maebachi": true,
+  "ha": true,
+  "finger": "first",
+  "techArc": "suri",
+  "techArcString": "2",
+  "techArcOffset": "3",
+  "triplet": "1"
+}
+
+finger values:  "first" | "second" | "third"
+techArc values: "suri" | "oshibachi"
+triplet values: "1" | "2" | "3" | "disabled"
+
+======================================================
+PRINT
+======================================================
+@media print:
+  .ui hidden
+  .workspace margin zeroed, overflow hidden
+  .page shadow removed, margin 0
+  body overflow hidden
+@page: size A4, margin 0
+
+======================================================
+ASSETS
+======================================================
+assets/
+  favicon.svg           ShamiWorks logo (SVG, for browser tab)
+  favicon.png           ShamiWorks logo (32x32px PNG, fallback)
+  ShamiWorks_black.svg  Logo, black version
+  ShamiWorks_white.svg  Logo, white version (used in menubar)
+  preview.png           Open Graph preview image (1200x630px)
