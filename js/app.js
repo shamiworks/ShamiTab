@@ -160,6 +160,12 @@ function generatePage(pageType, pageNumber) {
   }
 
   page.appendChild(pageContent);
+
+  const watermark = document.createElement("div");
+  watermark.className = "watermark";
+  watermark.textContent = "Created with ShamiTab by ShamiWorks";
+  page.appendChild(watermark);
+
   document.querySelector(".workspace").appendChild(page);
 
   // Sync title to/from running headers

@@ -36,6 +36,15 @@ body {
     margin: 4px;
     display: block;
 }
+.watermark {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 8pt;
+    color: #d3d3d3;
+    padding: 2mm 0;
+    font-family: "M Plus 2", sans-serif;
+}
 .menu-btn {
     border: none;
     width: 60px;
