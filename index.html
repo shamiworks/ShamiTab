@@ -20,11 +20,19 @@
   <!-- Main Menu -->
 <div class="ui">
     <div class="menubar">
-      <img src="assets/shamiworks-logo-white.svg" class="icon" alt="ShamiWorks logo" />
+      <img src="assets/shamiworks-logo-black.svg" class="icon" alt="ShamiWorks logo" />
+      <div class="menu-title-block">
+        <div class="menu-title-en">ShamiTab</div>
+        <div class="menu-title-ja">三味タブ</div>
+      </div>
       <button type="button" class="menu-btn" data-menu="file">File</button>
       <button type="button" class="menu-btn" data-menu="edit">Edit</button>
       <button type="button" class="menu-btn" data-menu="page">Page</button>
-      <button type="button" class="menu-btn info-btn" id="info-btn">Info</button>
+      <div class="menu-right">
+        <button type="button" class="menu-btn" onclick="window.open('about.html', '_blank')">About</button>
+        <button type="button" class="menu-btn" id="info-btn">Instructions</button>
+        <a href="#" class="menu-btn kofi-btn" id="kofi-btn">Buy me a boba</a>
+      </div>
     </div>
 
     <div class="menu-dropdown file-menu" data-menu="file">
