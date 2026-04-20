@@ -29,7 +29,7 @@ BUILD ORDER
     - README.md and LICENSE (CC BY 4.0)
     - Bug fix: mutually exclusive technique marks
       (sukui, hajiki, keshi, uchi)
-12. Ko-fi account and link wiring                  NOT STARTED
+12. Ko-fi account and link wiring                  DONE
 
 ======================================================
 NOTES
