@@ -29,7 +29,8 @@
       <button type="button" class="menu-btn" data-menu="edit">Edit</button>
       <button type="button" class="menu-btn" data-menu="page">Page</button>
       <div class="menu-right">
-        <button type="button" class="menu-btn" onclick="window.open('about.html', '_blank')">About</button>
+        <button type="button" class="menu-btn lang-toggle" id="lang-toggle">日本語</button>
+        <button type="button" class="menu-btn" id="about-btn">About</button>
         <button type="button" class="menu-btn" id="info-btn">Instructions</button>
         <a href="https://ko-fi.com/shamiworks" class="menu-btn kofi-btn" id="kofi-btn">Buy me a boba</a>
       </div>
@@ -37,7 +38,7 @@
 
     <div class="menu-dropdown file-menu" data-menu="file">
       <div class="has-submenu">
-        <button type="button" class="menu-dropdown-btn">New ▶</button>
+        <button type="button" class="menu-dropdown-btn" id="new-submenu">New ▶</button>
         <div class="submenu">
           <button type="button" class="menu-dropdown-btn" id="new-staff-page">Staff Page</button>
           <button type="button" class="menu-dropdown-btn" id="new-lyric-page">Staff and Lyric Page</button>
@@ -49,10 +50,10 @@
     </div>
 
     <div class="menu-dropdown edit-menu" data-menu="edit">
-      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Undo</button>
-      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Redo</button>
-      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Copy</button>
-      <button type="button" class="menu-dropdown-btn" style="text-decoration: line-through">Paste</button>
+      <button type="button" class="menu-dropdown-btn" id="edit-undo" style="text-decoration: line-through">Undo</button>
+      <button type="button" class="menu-dropdown-btn" id="edit-redo" style="text-decoration: line-through">Redo</button>
+      <button type="button" class="menu-dropdown-btn" id="edit-copy" style="text-decoration: line-through">Copy</button>
+      <button type="button" class="menu-dropdown-btn" id="edit-paste" style="text-decoration: line-through">Paste</button>
     </div>
 
     <div class="menu-dropdown page-menu" data-menu="page">
@@ -209,16 +210,16 @@
         <button type="button" class="palette-btn" data-action="measure" data-value="8" title="8 measures">8</button>
       </div>
       <div class="palette-item">
-        <button type="button" class="palette-btn" data-action="barline-type" data-value="stop" title="Stop barline">𝄁</button>
+        <button type="button" class="palette-btn, palette-bar-line" data-action="barline-type" data-value="stop" title="Stop barline">𝄁</button>
       </div>
       <div class="palette-item">
-        <button type="button" class="palette-btn" data-action="barline-type" data-value="open-repeat" title="Open repeat">𝄆</button>
+        <button type="button" class="palette-btn, palette-bar-line" data-action="barline-type" data-value="open-repeat" title="Open repeat">𝄆</button>
       </div>
       <div class="palette-item">
-        <button type="button" class="palette-btn" data-action="barline-type" data-value="close-repeat" title="Close repeat">𝄇</button>
+        <button type="button" class="palette-btn, palette-bar-line" data-action="barline-type" data-value="close-repeat" title="Close repeat">𝄇</button>
       </div>
       <div class="palette-item">
-        <button type="button" class="palette-btn" data-action="barline-type" data-value="normal" title="Normal barline">𝄀</button>
+        <button type="button" class="palette-btn, palette-bar-line" data-action="barline-type" data-value="normal" title="Normal barline">𝄀</button>
       </div>
       <div class="palette-header">Editing</div>
       <div class="palette-item">
@@ -246,42 +247,42 @@
   <div class="info-panel" id="info-panel">
     <button class="info-close" id="info-close">✕</button>
 
-    <h2>Getting started</h2>
-    <p>Hover over the notation area to highlight time divisions and string slots. Click a string slot to select it — selected slots are shown with an outline. You can then enter a tsubo using the keyboard or palette. Click a time division outside a string slot to select the division only — this is needed for some techniques.</p>
+    <h2 data-en="Getting started" data-ja="はじめに">Getting started</h2>
+    <p data-en="Hover over the notation area to highlight time divisions and string slots. Click a string slot to select it — selected slots are shown with an outline. You can then enter a tsubo using the keyboard or palette. Click a time division outside a string slot to select the division only — this is needed for some techniques." data-ja="譜面エリアにカーソルを合わせると、タイム・ディビジョンと糸スロットがハイライトされます。糸スロットをクリックして選択すると、枠で囲まれた状態になります。キーボードまたはパレットからツボを入力できます。糸スロット以外のタイム・ディビジョンをクリックすると、ディビジョンのみが選択されます（一部の奏法で必要です）。">Hover over the notation area to highlight time divisions and string slots. Click a string slot to select it — selected slots are shown with an outline. You can then enter a tsubo using the keyboard or palette. Click a time division outside a string slot to select the division only — this is needed for some techniques.</p>
 
-    <h2>Changing the number of measures</h2>
-    <p>Click anywhere on a staff unit to select it — the unit is outlined when selected. Then click Free, 2, 4, or 8 in the palette.</p>
+    <h2 data-en="Changing the number of measures" data-ja="小節数の変更">Changing the number of measures</h2>
+    <p data-en="Click anywhere on a staff unit to select it — the unit is outlined when selected. Then click Free, 2, 4, or 8 in the palette." data-ja="スタッフ・ユニットをクリックして選択すると、枠で囲まれた状態になります。パレットの「フリー」「2」「4」「8」をクリックして小節数を変更します。">Click anywhere on a staff unit to select it — the unit is outlined when selected. Then click Free, 2, 4, or 8 in the palette.</p>
 
-    <h2>Changing barline types</h2>
-    <p>Alt+click a barline to select it, then choose normal, repeat, or stop from the palette.</p>
+    <h2 data-en="Changing barline types" data-ja="縦線の種類の変更">Changing barline types</h2>
+    <p data-en="Alt+click a barline to select it, then choose normal, repeat, or stop from the palette." data-ja="Alt+クリックで縦線を選択し、パレットから通常線・反復記号・終止線を選択します。">Alt+click a barline to select it, then choose normal, repeat, or stop from the palette.</p>
 
-    <h2>Suri and oshibachi</h2>
-    <p>Enter the starting tsubo and the target tsubo. Select the starting tsubo slot. Press I for suri or O for oshibachi. The arc will be drawn between the two tsubo. Both must be in the same staff unit.</p>
+    <h2 data-en="Suri and oshibachi" data-ja="スリとオシバチ">Suri and oshibachi</h2>
+    <p data-en="Enter the starting tsubo and the target tsubo. Select the starting tsubo slot. Press I for suri or O for oshibachi. The arc will be drawn between the two tsubo. Both must be in the same staff unit." data-ja="起点のツボと目標のツボを入力します。起点のツボスロットを選択し、スリは I キー、オシバチは O キーを押します。2つのツボは同じスタッフ・ユニット内にある必要があります。">Enter the starting tsubo and the target tsubo. Select the starting tsubo slot. Press I for suri or O for oshibachi. The arc will be drawn between the two tsubo. Both must be in the same staff unit.</p>
 
-    <h2>Triplets</h2>
-    <p>Select a time division and press T. Three consecutive divisions are grouped as a triplet and a bracket is drawn below the staff. The fourth division is disabled. To remove a triplet, select any active tsubo in the group and press T again, or press Backspace.</p>
+    <h2 data-en="Triplets" data-ja="三連符">Triplets</h2>
+    <p data-en="Select a time division and press T. Three consecutive divisions are grouped as a triplet and a bracket is drawn below the staff. The fourth division is disabled. To remove a triplet, select any active tsubo in the group and press T again, or press Backspace." data-ja="タイム・ディビジョンを選択して T キーを押します。連続する3つのディビジョンが三連符としてグループ化され、譜面の下にブラケットが描かれます。4つ目のディビジョンは無効になります。三連符を解除するには、グループ内のいずれかのツボを選択して T キーを押すか、Backspace キーを押します。">Select a time division and press T. Three consecutive divisions are grouped as a triplet and a bracket is drawn below the staff. The fourth division is disabled. To remove a triplet, select any active tsubo in the group and press T again, or press Backspace.</p>
 
-    <h2>Keyboard shortcuts</h2>
+    <h2 data-en="Keyboard shortcuts" data-ja="キーボード・ショートカット">Keyboard shortcuts</h2>
     <table class="shortcut-table">
-      <tr><td>0–9</td><td>Tsubo</td></tr>
-      <tr><td>#</td><td>Sharp</td></tr>
-      <tr><td>B</td><td>Flat</td></tr>
-      <tr><td>R</td><td>Rest</td></tr>
-      <tr><td>D</td><td>Duration underline (cycles: none → single → double)</td></tr>
-      <tr><td>.</td><td>Duration dot</td></tr>
-      <tr><td>S</td><td>Sukui</td></tr>
-      <tr><td>H</td><td>Hajiki</td></tr>
-      <tr><td>K</td><td>Keshi</td></tr>
-      <tr><td>U</td><td>Uchi</td></tr>
-      <tr><td>M</td><td>Maebachi</td></tr>
-      <tr><td>A</td><td>Ha</td></tr>
-      <tr><td>I</td><td>Suri (with starting tsubo selected)</td></tr>
-      <tr><td>O</td><td>Oshibachi (with starting tsubo selected)</td></tr>
-      <tr><td>T</td><td>Triplet (with starting tsubo selected)</td></tr>
-      <tr><td>F</td><td>Finger (cycles: none → Ⅰ → Ⅱ → Ⅲ)</td></tr>
-      <tr><td>Backspace</td><td>Clear</td></tr>
-      <tr><td>Escape</td><td>Deselect</td></tr>
-      <tr><td>Arrow keys</td><td>Navigate</td></tr>
+      <tr><td>0–9</td><td data-en="Tsubo" data-ja="ツボ">Tsubo</td></tr>
+      <tr><td>#</td><td data-en="Sharp" data-ja="シャープ">Sharp</td></tr>
+      <tr><td>B</td><td data-en="Flat" data-ja="フラット">Flat</td></tr>
+      <tr><td>R</td><td data-en="Rest" data-ja="休符">Rest</td></tr>
+      <tr><td>D</td><td data-en="Duration underline (cycles: none → single → double)" data-ja="音価の下線（なし→一本→二本）">Duration underline (cycles: none → single → double)</td></tr>
+      <tr><td>.</td><td data-en="Duration dot" data-ja="付点">Duration dot</td></tr>
+      <tr><td>S</td><td data-en="Sukui" data-ja="スクイ">Sukui</td></tr>
+      <tr><td>H</td><td data-en="Hajiki" data-ja="ハジキ">Hajiki</td></tr>
+      <tr><td>K</td><td data-en="Keshi" data-ja="ケシ">Keshi</td></tr>
+      <tr><td>U</td><td data-en="Uchi" data-ja="ウチ">Uchi</td></tr>
+      <tr><td>M</td><td data-en="Maebachi" data-ja="前バチ">Maebachi</td></tr>
+      <tr><td>A</td><td data-en="Ha" data-ja="ハ！">Ha</td></tr>
+      <tr><td>I</td><td data-en="Suri (with starting tsubo selected)" data-ja="スリ（起点ツボを選択した状態で）">Suri (with starting tsubo selected)</td></tr>
+      <tr><td>O</td><td data-en="Oshibachi (with starting tsubo selected)" data-ja="オシバチ（起点ツボを選択した状態で）">Oshibachi (with starting tsubo selected)</td></tr>
+      <tr><td>T</td><td data-en="Triplet (with time division selected)" data-ja="三連符（タイム・ディビジョンを選択した状態で）">Triplet (with time division selected)</td></tr>
+      <tr><td>F</td><td data-en="Finger (cycles: none → Ⅰ → Ⅱ → Ⅲ)" data-ja="指番号（なし→Ⅰ→Ⅱ→Ⅲ）">Finger (cycles: none → Ⅰ → Ⅱ → Ⅲ)</td></tr>
+      <tr><td>Backspace</td><td data-en="Clear" data-ja="クリア">Clear</td></tr>
+      <tr><td>Escape</td><td data-en="Deselect" data-ja="選択解除">Deselect</td></tr>
+      <tr><td>Arrow keys</td><td data-en="Navigate" data-ja="移動">Navigate</td></tr>
     </table>
   </div>
 

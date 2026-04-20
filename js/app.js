@@ -16,9 +16,14 @@ menuButtons.forEach(button => {
     e.stopPropagation();
 
     const menuName = button.dataset.menu;
-    const menu = document.querySelector(
-      `.menu-dropdown[data-menu="${menuName}"]`
-    );
+    const menu = menuName
+      ? document.querySelector(`.menu-dropdown[data-menu="${menuName}"]`)
+      : null;
+
+    if (!menu) {
+      closeAllMenus();
+      return;
+    }
 
     const isOpen = menu.classList.contains("open");
 
@@ -175,7 +180,7 @@ function generatePage(pageType, pageNumber) {
 
   const watermark = document.createElement("div");
   watermark.className = "watermark";
-  watermark.textContent = "Created with ShamiTab by ShamiWorks";
+  watermark.textContent = (STRINGS[currentLang] || STRINGS.en).watermark;
   pageContent.appendChild(watermark);
 
   document.querySelector(".workspace").appendChild(page);
@@ -2277,4 +2282,164 @@ document.getElementById("delete-page").addEventListener("click", () => {
   page.remove();
   updatePageNumbers();
 });
+
+/*
+======================================================
+  Language / i18n
+======================================================
+*/
+
+const STRINGS = {
+  en: {
+    'lang-toggle':           '日本語',
+    'data-menu-file':        'File',
+    'data-menu-edit':        'Edit',
+    'data-menu-page':        'Page',
+    'about-btn':             'About',
+    'info-btn':              'Instructions',
+    'kofi-btn':              'Buy me a boba',
+    'new-submenu':           'New ▶',
+    'new-staff-page':        'Staff Page',
+    'new-lyric-page':        'Staff and Lyric Page',
+    'open-file':             'Open',
+    'save-file':             'Save',
+    'print-file':            'Print',
+    'edit-undo':             'Undo',
+    'edit-redo':             'Redo',
+    'edit-copy':             'Copy',
+    'edit-paste':            'Paste',
+    'add-staff-page':        'Add Staff Page',
+    'add-lyric-page':        'Add Staff and Lyric Page',
+    'clear-page':            'Clear Page',
+    'delete-page':           'Delete Page',
+    'palette-header-tsubo':     'Tsubo',
+    'palette-header-duration':  'Duration',
+    'palette-header-technique': 'Technique',
+    'palette-header-finger':    'Finger',
+    'palette-header-measure':   'Measure',
+    'palette-header-editing':   'Editing',
+    'palette-measure-0':     'Free',
+    'palette-clear':         'Clear',
+    'palette-copy':          'Copy',
+    'palette-paste':         'Paste',
+    'watermark':             'Created with ShamiTab by ShamiWorks',
+  },
+  ja: {
+    'lang-toggle':           'English',
+    'data-menu-file':        'ファイル',
+    'data-menu-edit':        '編集',
+    'data-menu-page':        'ページ',
+    'about-btn':             'アプリについて',
+    'info-btn':              '使い方',
+    'kofi-btn':              'ボバをおごる',
+    'new-submenu':           '新規 ▶',
+    'new-staff-page':        '譜面ページ',
+    'new-lyric-page':        '譜面＋歌詞ページ',
+    'open-file':             '開く',
+    'save-file':             '保存',
+    'print-file':            '印刷',
+    'edit-undo':             '元に戻す',
+    'edit-redo':             'やり直す',
+    'edit-copy':             'コピー',
+    'edit-paste':            '貼り付け',
+    'add-staff-page':        '譜面ページを追加',
+    'add-lyric-page':        '譜面＋歌詞ページを追加',
+    'clear-page':            'ページをクリア',
+    'delete-page':           'ページを削除',
+    'palette-header-tsubo':     'ツボ',
+    'palette-header-duration':  '音価',
+    'palette-header-technique': '奏法',
+    'palette-header-finger':    '指番号',
+    'palette-header-measure':   '小節',
+    'palette-header-editing':   '編集',
+    'palette-measure-0':     'フリー',
+    'palette-clear':         'クリア',
+    'palette-copy':          'コピー',
+    'palette-paste':         '貼り付け',
+    'watermark':             '三味ワークス「三味タブ」で作成',
+  }
+};
+
+let currentLang = 'en';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  const s = STRINGS[lang];
+
+  // Toggle button
+  document.getElementById('lang-toggle').textContent = s['lang-toggle'];
+
+  // Menubar — data-menu buttons
+  document.querySelector('[data-menu="file"]').textContent = s['data-menu-file'];
+  document.querySelector('[data-menu="edit"]').textContent = s['data-menu-edit'];
+  document.querySelector('[data-menu="page"]').textContent = s['data-menu-page'];
+
+  // Menu-right buttons
+  document.getElementById('about-btn').textContent = s['about-btn'];
+  document.getElementById('info-btn').textContent  = s['info-btn'];
+  document.getElementById('kofi-btn').textContent  = s['kofi-btn'];
+
+  // File menu
+  document.getElementById('new-submenu').textContent    = s['new-submenu'];
+  document.getElementById('new-staff-page').textContent = s['new-staff-page'];
+  document.getElementById('new-lyric-page').textContent = s['new-lyric-page'];
+  document.getElementById('open-file').textContent      = s['open-file'];
+  document.getElementById('save-file').textContent      = s['save-file'];
+  document.getElementById('print-file').textContent     = s['print-file'];
+
+  // Edit menu
+  document.getElementById('edit-undo').textContent  = s['edit-undo'];
+  document.getElementById('edit-redo').textContent  = s['edit-redo'];
+  document.getElementById('edit-copy').textContent  = s['edit-copy'];
+  document.getElementById('edit-paste').textContent = s['edit-paste'];
+
+  // Page menu
+  document.getElementById('add-staff-page').textContent = s['add-staff-page'];
+  document.getElementById('add-lyric-page').textContent = s['add-lyric-page'];
+  document.getElementById('clear-page').textContent     = s['clear-page'];
+  document.getElementById('delete-page').textContent    = s['delete-page'];
+
+  // Palette headers (in DOM order: Tsubo, Duration, Technique, Finger, Measure, Editing)
+  const paletteHeaderKeys = [
+    'palette-header-tsubo',
+    'palette-header-duration',
+    'palette-header-technique',
+    'palette-header-finger',
+    'palette-header-measure',
+    'palette-header-editing',
+  ];
+  document.querySelectorAll('.palette-header').forEach((el, i) => {
+    if (paletteHeaderKeys[i]) el.textContent = s[paletteHeaderKeys[i]];
+  });
+
+  // Palette buttons
+  document.querySelector('[data-action="measure"][data-value="0"]').textContent   = s['palette-measure-0'];
+  document.querySelector('[data-action="clear"]').textContent                     = s['palette-clear'];
+  document.querySelector('[data-action="editing"][data-value="copy"]').textContent  = s['palette-copy'];
+  document.querySelector('[data-action="editing"][data-value="paste"]').textContent = s['palette-paste'];
+
+  // Watermarks (existing pages)
+  document.querySelectorAll('.watermark').forEach(el => {
+    el.textContent = s['watermark'];
+  });
+
+  // Info panel — elements with data-en / data-ja
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+}
+
+// About button — open correct page for active language
+document.getElementById('about-btn').addEventListener('click', () => {
+  window.open(currentLang === 'ja' ? 'about-ja.html' : 'about.html', '_blank');
+});
+
+// Lang toggle button
+document.getElementById('lang-toggle').addEventListener('click', () => {
+  setLanguage(currentLang === 'en' ? 'ja' : 'en');
+});
+
+// Init on load
+setLanguage(localStorage.getItem('lang') || 'en');
 
