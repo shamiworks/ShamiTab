@@ -75,14 +75,15 @@ function createHeader(isFirstPage, pageNumber) {
   header.classList.add("header");
   if (!isFirstPage) header.classList.add("running-header");
 
+  const ph = HEADER_PLACEHOLDERS[currentLang] || HEADER_PLACEHOLDERS.en;
   const fields = [
-    { cls: "dedication-field", editable: true,  placeholder: "Dedication"        },
-    { cls: "page-number",      editable: false, placeholder: null               },
-    { cls: "title-field",      editable: true,  placeholder: "Title"      },
-    { cls: "subtitle-field",   editable: true,  placeholder: "Subtitle"   },
-    { cls: "tuning-field",     editable: true,  placeholder: "Tuning"     },
-    { cls: "time-sig-field",   editable: true,  placeholder: "Time"       },
-    { cls: "arranger-field",   editable: true,  placeholder: "Arranger"   },
+    { cls: "dedication-field", editable: true,  placeholder: ph['dedication-field'] },
+    { cls: "page-number",      editable: false, placeholder: null                   },
+    { cls: "title-field",      editable: true,  placeholder: ph['title-field']      },
+    { cls: "subtitle-field",   editable: true,  placeholder: ph['subtitle-field']   },
+    { cls: "tuning-field",     editable: true,  placeholder: ph['tuning-field']     },
+    { cls: "time-sig-field",   editable: true,  placeholder: ph['time-sig-field']   },
+    { cls: "arranger-field",   editable: true,  placeholder: ph['arranger-field']   },
   ];
 
   fields.forEach(({ cls, editable, placeholder }) => {
@@ -138,7 +139,7 @@ function createLyricUnit() {
   block.classList.add("lyric-unit");
   block.dataset.blockType = "lyric-unit";
 
-  const lyricPlaceholders = ["Lyric line 1", "Lyric line 2", "Lyric line 3"];
+  const lyricPlaceholders = STRINGS.lyricPlaceholders[currentLang];
 
   for (let i = 0; i < 3; i++) {
     const lineDiv = document.createElement("div");
@@ -2289,6 +2290,25 @@ document.getElementById("delete-page").addEventListener("click", () => {
 ======================================================
 */
 
+const HEADER_PLACEHOLDERS = {
+  en: {
+    'dedication-field': 'Dedication',
+    'title-field':      'Title',
+    'subtitle-field':   'Subtitle',
+    'tuning-field':     'Tuning',
+    'time-sig-field':   'Time',
+    'arranger-field':   'Arranger',
+  },
+  ja: {
+    'dedication-field': '献辞',
+    'title-field':      'タイトル',
+    'subtitle-field':   'サブタイトル',
+    'tuning-field':     '調弦',
+    'time-sig-field':   '拍子',
+    'arranger-field':   '編曲者',
+  }
+};
+
 const STRINGS = {
   en: {
     'lang-toggle':           '日本語',
@@ -2357,7 +2377,12 @@ const STRINGS = {
     'palette-copy':          'コピー',
     'palette-paste':         '貼り付け',
     'watermark':             '三味ワークス「三味タブ」で作成',
-  }
+  },
+
+  lyricPlaceholders: {
+  en: ["Lyric line 1", "Lyric line 2", "Lyric line 3"],
+  ja: ["歌詞　１行目", "歌詞　２行目", "歌詞　３行目"]
+}
 };
 
 let currentLang = 'en';
@@ -2428,6 +2453,20 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-en]').forEach(el => {
     el.textContent = el.dataset[lang];
   });
+
+  // Header field placeholders (all pages)
+  const placeholders = HEADER_PLACEHOLDERS[lang] || HEADER_PLACEHOLDERS.en;
+  Object.entries(placeholders).forEach(([cls, text]) => {
+    document.querySelectorAll(`.${cls}`).forEach(el => {
+      el.dataset.placeholder = text;
+    });
+  });
+
+  // Lyric line placeholders
+  document.querySelectorAll('.lyric-line').forEach(el => {
+  const i = parseInt(el.dataset.line) - 1;
+  el.dataset.placeholder = STRINGS.lyricPlaceholders[lang][i];
+});
 }
 
 // About button — open correct page for active language
